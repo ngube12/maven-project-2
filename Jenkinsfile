@@ -48,7 +48,7 @@ pipeline {
     }
     stage('Deploy to ap-south-1') {
       environment {
-        HOSTS = "ap-south-1"
+        HOSTS = "us-east-1"
       }
       steps {
         sh "ansible-playbook ${WORKSPACE}/deploy.yaml --extra-vars \"hosts=$HOSTS workspace_path=$WORKSPACE\""
