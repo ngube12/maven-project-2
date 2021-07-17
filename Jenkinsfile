@@ -34,7 +34,7 @@ pipeline {
     }
     stage('Deploy to Dev') {
       environment {
-        HOSTS = "Dev"
+        HOSTS = "dev"
       }
       steps {
         sh "ansible-playbook ${WORKSPACE}/deploy.yaml --extra-vars \"hosts=$HOSTS workspace_path=$WORKSPACE\""
@@ -48,7 +48,7 @@ pipeline {
     }
     stage('Deploy to Prod') {
       environment {
-        HOSTS = "Prod"
+        HOSTS = "prod"
       }
       steps {
         sh "ansible-playbook ${WORKSPACE}/deploy.yaml --extra-vars \"hosts=$HOSTS workspace_path=$WORKSPACE\""
